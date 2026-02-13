@@ -1,0 +1,46 @@
+[2026-02-12 20:01:17,999] [INFO] [unknown] (logsentinelai.core.config) [config] (1/2) Not found: /etc/logsentinelai.config
+[2026-02-12 20:01:17,999] [INFO] [unknown] (logsentinelai.core.config) [config] (2/2) Found config file: ./.env
+[2026-02-12 20:01:17,999] [INFO] [unknown] (logsentinelai.core.config) [config] Selected config file: ./.env
+[2026-02-12 20:01:18,001] [INFO] [unknown] (logsentinelai.core.config) Configuration loaded (config_file=./.env)
+[2026-02-12 20:01:19,630] [INFO] [unknown] (logsentinelai.cli) LogSentinelAI CLI started.
+[2026-02-12 20:01:25,145] [INFO] [unknown] (logsentinelai.core.config) [config] (1/2) Not found: /etc/logsentinelai.config
+[2026-02-12 20:01:25,145] [INFO] [unknown] (logsentinelai.core.config) [config] (2/2) Found config file: ./.env
+[2026-02-12 20:01:25,145] [INFO] [unknown] (logsentinelai.core.config) [config] Selected config file: ./.env
+[2026-02-12 20:01:25,147] [INFO] [unknown] (logsentinelai.core.config) Configuration loaded (config_file=./.env)
+[2026-02-12 20:01:26,727] [INFO] [unknown] (logsentinelai.core.commons) SSH not enabled (local mode)
+[2026-02-12 20:01:26,727] [INFO] [unknown] (logsentinelai.analyzers.httpd_access) Starting HTTPD Access Log Analysis (mode: batch, log_path: sample-logs/access-10k.log, remote_mode: local)
+[2026-02-12 20:01:26,727] [INFO] [httpd_access] (logsentinelai.core.commons) Starting batch analysis for httpd_access (HTTPD Access Log Analysis)
+[2026-02-12 20:01:26,727] [INFO] [httpd_access] (logsentinelai.core.commons) Using LLM provider: openai, model: gpt-4o-mini
+[2026-02-12 20:01:26,727] [INFO] [httpd_access] (logsentinelai.core.config) Getting analysis configuration for log_type: httpd_access
+[2026-02-12 20:01:26,727] [INFO] [httpd_access] (logsentinelai.core.config) Local mode: using log path: sample-logs/access-10k.log
+[2026-02-12 20:01:26,727] [INFO] [httpd_access] (logsentinelai.core.config) Final configuration - chunk_size: 10, response_language: korean
+[2026-02-12 20:01:26,727] [INFO] [httpd_access] (logsentinelai.core.config) Analysis configuration prepared successfully
+[2026-02-12 20:01:26,727] [INFO] [httpd_access] (logsentinelai.core.commons) Analysis configuration loaded successfully for httpd_access
+[2026-02-12 20:01:26,727] [INFO] [httpd_access] (logsentinelai.core.commons) Using provided log path pattern: sample-logs/access-10k.log
+[2026-02-12 20:01:26,727] [WARNING] [httpd_access] (logsentinelai.core.commons) Pattern 'sample-logs/access-10k.log' did not match any files, treating as literal path
+[2026-02-12 20:01:26,728] [INFO] [httpd_access] (logsentinelai.core.commons) Final expanded file list: ['sample-logs/access-10k.log']
+[2026-02-12 20:01:26,728] [INFO] [httpd_access] (logsentinelai.core.commons) Found 1 files to process: ['sample-logs/access-10k.log']
+[2026-02-12 20:01:26,728] [INFO] [httpd_access] (logsentinelai.core.commons) Final configuration - Access mode: local, Files: 1, Chunk size: 10
+[2026-02-12 20:01:26,728] [INFO] [httpd_access] (logsentinelai.core.commons) Initializing LLM model...
+[2026-02-12 20:01:26,728] [INFO] [httpd_access] (logsentinelai.llm) Initializing LLM model: provider=openai, model=gpt-4o-mini
+[2026-02-12 20:01:26,728] [ERROR] [httpd_access] (logsentinelai.llm) Failed to initialize LLM model: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Traceback (most recent call last):
+  File "/root/Workspace-RL8/LogSentinelAI/src/logsentinelai/core/llm.py", line 56, in initialize_llm_model
+    client = openai.OpenAI(
+             ^^^^^^^^^^^^^^
+  File "/root/Workspace-RL8/LogSentinelAI/.venv/lib/python3.11/site-packages/openai/_client.py", line 130, in __init__
+    raise OpenAIError(
+openai.OpenAIError: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+[2026-02-12 20:01:26,728] [ERROR] [httpd_access] (logsentinelai.analyzers.httpd_access) Unexpected error in HTTPD access log analysis: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Traceback (most recent call last):
+  File "/root/Workspace-RL8/LogSentinelAI/src/logsentinelai/analyzers/httpd_access.py", line 100, in main
+    run_generic_batch_analysis(
+  File "/root/Workspace-RL8/LogSentinelAI/src/logsentinelai/core/commons.py", line 451, in run_generic_batch_analysis
+    model = initialize_llm_model()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Workspace-RL8/LogSentinelAI/src/logsentinelai/core/llm.py", line 56, in initialize_llm_model
+    client = openai.OpenAI(
+             ^^^^^^^^^^^^^^
+  File "/root/Workspace-RL8/LogSentinelAI/.venv/lib/python3.11/site-packages/openai/_client.py", line 130, in __init__
+    raise OpenAIError(
+openai.OpenAIError: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
